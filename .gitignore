@@ -1,0 +1,13 @@
+node_modules/
+.DS_Store
+venv/
+backend/venv/
+__pycache__/
+*.pyc
+.env
+*.db
+*.sqlite3
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/reports/*
+!backend/reports/.gitkeep
