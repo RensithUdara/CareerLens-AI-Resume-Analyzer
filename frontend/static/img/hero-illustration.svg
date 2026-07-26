@@ -1,0 +1,50 @@
+<svg viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DCEBFA"/>
+      <stop offset="100%" stop-color="#EAF2FB"/>
+    </linearGradient>
+  </defs>
+  <circle cx="210" cy="190" r="170" fill="url(#skyGrad)"/>
+
+  <!-- floating dots -->
+  <circle cx="60" cy="80" r="6" fill="#2E6FA7" opacity="0.5"/>
+  <circle cx="360" cy="120" r="8" fill="#2FA36B" opacity="0.5"/>
+  <circle cx="370" cy="300" r="5" fill="#D98A2B" opacity="0.5"/>
+
+  <!-- document / resume card -->
+  <g transform="translate(110,70)">
+    <rect x="0" y="0" width="150" height="200" rx="14" fill="#FFFFFF" stroke="#1B3A6B" stroke-width="4"/>
+    <rect x="20" y="24" width="70" height="10" rx="5" fill="#1B3A6B"/>
+    <rect x="20" y="44" width="46" height="7" rx="3.5" fill="#2E6FA7" opacity="0.6"/>
+    <rect x="20" y="70" width="110" height="6" rx="3" fill="#C9DDF2"/>
+    <rect x="20" y="86" width="110" height="6" rx="3" fill="#C9DDF2"/>
+    <rect x="20" y="102" width="80" height="6" rx="3" fill="#C9DDF2"/>
+    <rect x="20" y="126" width="50" height="8" rx="4" fill="#2FA36B"/>
+    <rect x="20" y="144" width="90" height="6" rx="3" fill="#C9DDF2"/>
+    <rect x="20" y="160" width="70" height="6" rx="3" fill="#C9DDF2"/>
+    <circle cx="122" cy="130" r="9" fill="#DEF3E7" stroke="#2FA36B" stroke-width="2"/>
+  </g>
+
+  <!-- friendly robot / AI assistant -->
+  <g transform="translate(230,150)">
+    <rect x="0" y="30" width="90" height="70" rx="18" fill="#2E6FA7"/>
+    <rect x="14" y="0" width="62" height="46" rx="16" fill="#5EA1DE"/>
+    <circle cx="34" cy="22" r="7" fill="#FFFFFF"/>
+    <circle cx="60" cy="22" r="7" fill="#FFFFFF"/>
+    <circle cx="34" cy="22" r="3" fill="#1B3A6B"/>
+    <circle cx="60" cy="22" r="3" fill="#1B3A6B"/>
+    <rect x="40" y="-14" width="8" height="16" rx="4" fill="#1B3A6B"/>
+    <circle cx="44" cy="-18" r="6" fill="#2FA36B"/>
+    <rect x="20" y="50" width="50" height="8" rx="4" fill="#DCEBFA"/>
+    <rect x="20" y="64" width="30" height="8" rx="4" fill="#DCEBFA"/>
+    <rect x="-14" y="45" width="16" height="34" rx="8" fill="#5EA1DE"/>
+    <rect x="88" y="45" width="16" height="34" rx="8" fill="#5EA1DE"/>
+  </g>
+
+  <!-- checklist / score badge -->
+  <g transform="translate(150,290)">
+    <circle cx="30" cy="30" r="30" fill="#DEF3E7"/>
+    <path d="M17 31 L26 40 L44 20" stroke="#2FA36B" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
