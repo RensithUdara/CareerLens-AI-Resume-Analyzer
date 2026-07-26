@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="container page">
+  {% if not user %}
+    <div class="card">
+      <h2>You need to log in first</h2>
+      <p>Please <a href="/login">log in</a> or <a href="/register">create an account</a> to see your dashboard.</p>
+    </div>
+  {% else %}
+    <div class="page-head reveal">
+      <div>
+        <div class="eyebrow">Workspace</div>
+        <h1>Hi {{ user.full_name.split(' ')[0] }}</h1>
+        <p>Every resume analysis you run appears here, ready for review, comparison, and report download.</p>
+      </div>
+      <div class="page-actions">
+        <a href="/compare" class="btn btn-outline">Compare versions</a>
+        <a href="/upload" class="btn btn-primary">New analysis</a>
+      </div>
+    </div>
+
+    {% if resumes %}
+      <div class="resume-list">
+        {% for r in resumes %}
+          <div class="resume-history-item reveal">
+            <div class="meta">
+              <img src="/static/img/icon-report.svg" alt="">
+              <div>
+                <strong>{{ r.original_filename }}</strong>
+                <div class="meta-line">Uploaded {{ r.uploaded_at.strftime('%b %d, %Y at %H:%M') }}</div>
+              </div>
+            </div>
+            <div class="item-actions">
+              <a href="/compare?after={{ r.id }}" class="btn btn-outline">Compare</a>
+              <a href="/analysis/{{ r.id }}" class="btn btn-outline">View analysis</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state card reveal">
+        <img src="/static/img/empty-folder.svg" alt="No resumes yet">
+        <h3>No resumes yet</h3>
+        <p>Upload your first resume to get an ATS score and personalized suggestions.</p>
+        <a href="/upload" class="btn btn-primary">Upload a resume</a>
+      </div>
+    {% endif %}
+  {% endif %}
+</div>
+{% endblock %}

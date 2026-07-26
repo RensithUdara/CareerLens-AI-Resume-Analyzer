@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Compare versions{% endblock %}
+{% block content %}
+<div class="container page">
+  {% if not user %}
+    <div class="card">
+      <h2>Please log in</h2>
+      <p><a href="/login">Log in</a> to compare resume versions.</p>
+    </div>
+  {% else %}
+    <div class="page-head reveal">
+      <div>
+        <div class="eyebrow">Version diff</div>
+        <h1>Compare resume versions</h1>
+        <p>Review what changed between two uploads and connect those edits to your latest ATS score.</p>
+      </div>
+      <a href="/api/analysis/history/export.csv" class="btn btn-outline">Export history CSV</a>
+    </div>
+
+    <div class="card reveal">
+      <form id="compare-form" class="compare-form">
+        <div class="form-group">
+          <label for="before-resume">Before</label>
+          <select id="before-resume" required></select>
+        </div>
+        <div class="form-group">
+          <label for="after-resume">After</label>
+          <select id="after-resume" required></select>
+        </div>
+        <button type="submit" class="btn btn-primary">Compare versions</button>
+      </form>
+      <div class="form-error" id="compare-error"></div>
+    </div>
+
+    <div id="compare-empty" class="empty-state card reveal" style="display:none;">
+      <img src="/static/img/empty-folder.svg" alt="">
+      <h3>Upload two versions</h3>
+      <p>You need at least two resume uploads before CareerLens can compare revisions.</p>
+      <a href="/upload" class="btn btn-primary">Upload a resume</a>
+    </div>
+
+    <div id="compare-results" class="section-stack" style="display:none;">
+      <div class="compare-summary">
+        <div class="card">
+          <div class="eyebrow">Before</div>
+          <h2 id="before-title"></h2>
+          <p id="before-meta"></p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">After</div>
+          <h2 id="after-title"></h2>
+          <p id="after-meta"></p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">ATS movement</div>
+          <h2 id="score-delta">--</h2>
+          <p>Based on the latest analysis for each selected upload.</p>
+        </div>
+      </div>
+
+      <div class="card diff-card">
+        <div class="diff-head">
+          <h2>Side-by-side diff</h2>
+          <div class="diff-legend">
+            <span class="legend-dot added"></span> Added
+            <span class="legend-dot removed"></span> Removed
+            <span class="legend-dot changed"></span> Changed
+          </div>
+        </div>
+        <div class="diff-grid" id="diff-grid"></div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
+{% block scripts %}<script src="/static/js/compare.js"></script>{% endblock %}
