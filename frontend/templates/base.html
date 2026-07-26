@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}CareerLens{% endblock %} - CareerLens</title>
+  <link rel="icon" href="/static/img/logo.svg">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="/static/js/theme.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <a href="/" class="brand"><img src="/static/img/logo.svg" alt="CareerLens logo"> CareerLens</a>
+    <nav>
+      {% if user %}
+        <a href="/dashboard" class="{{ 'active' if active == 'dashboard' }}">Dashboard</a>
+        <a href="/upload" class="{{ 'active' if active == 'upload' }}">New analysis</a>
+        <a href="/compare" class="{{ 'active' if active == 'compare' }}">Compare</a>
+        <a href="/tracker" class="{{ 'active' if active == 'tracker' }}">Tracker</a>
+        <a href="#" id="logout-btn">Log out</a>
+      {% else %}
+        <a href="/login" class="{{ 'active' if active == 'login' }}">Log in</a>
+        <a href="/register" class="nav-cta">Sign up</a>
+      {% endif %}
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="brand"><img src="/static/img/logo.svg" alt="CareerLens logo"> CareerLens</a>
+        <p>AI resume analysis, version comparison, and career improvement tracking in one focused workspace.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        {% if user %}
+          <a href="/dashboard">Dashboard</a>
+          <a href="/upload">New analysis</a>
+          <a href="/compare">Compare</a>
+          <a href="/tracker">Tracker</a>
+        {% else %}
+          <a href="/login">Log in</a>
+          <a href="/register">Create account</a>
+        {% endif %}
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>CareerLens &copy; 2026</span>
+      <span>Built for practical resume intelligence.</span>
+    </div>
+  </footer>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/auth.js"></script>
+  <script src="/static/js/ui.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
