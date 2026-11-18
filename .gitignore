@@ -10,4 +10,4 @@ backend/uploads/*
 !backend/uploads/.gitkeep
 backend/reports/*
 !backend/reports/.gitkeep
-config.bat
+.env
