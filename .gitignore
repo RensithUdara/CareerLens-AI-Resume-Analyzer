@@ -11,3 +11,6 @@ backend/uploads/*
 backend/reports/*
 !backend/reports/.gitkeep
 .env
+.env.*
+.env.local
+.env.production
