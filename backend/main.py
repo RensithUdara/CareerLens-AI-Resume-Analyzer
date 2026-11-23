@@ -5,7 +5,6 @@ Jinja2 frontend pages.
 
 Run with:  uvicorn main:app --reload
 """
-import utils.session
 import os
 from fastapi import FastAPI, Request, Depends
 from fastapi.staticfiles import StaticFiles
